@@ -1,0 +1,53 @@
+{
+  "log_file": "logs/monitor.log",
+  "report_dir": "data/reports",
+  "poll_interval_seconds": 30,
+  "max_events_per_poll": 500,
+  "thresholds": {
+    "per_username": {
+      "count": 5,
+      "window_seconds": 300
+    },
+    "per_source_ip": {
+      "count": 10,
+      "window_seconds": 300
+    }
+  },
+  "logon_types": {
+    "2": "Interactive (local keyboard)",
+    "3": "Network (SMB / file share)",
+    "4": "Batch (scheduled task)",
+    "5": "Service",
+    "7": "Unlock (screensaver)",
+    "8": "NetworkCleartext",
+    "9": "NewCredentials (RunAs)",
+    "10": "RemoteInteractive (RDP)",
+    "11": "CachedInteractive"
+  },
+  "failure_reasons": {
+    "0xC000006A": "Wrong password",
+    "0xC0000064": "Username does not exist",
+    "0xC000006D": "Generic logon failure",
+    "0xC000006E": "Account restriction",
+    "0xC000006F": "Outside logon hours",
+    "0xC0000070": "Workstation restriction",
+    "0xC0000071": "Password expired",
+    "0xC0000072": "Account disabled",
+    "0xC0000193": "Account expired",
+    "0xC0000234": "Account locked out"
+  },
+  "alert_destinations": [
+    "csv",
+    "eventlog"
+  ],
+  "teams_webhook_url": "",
+  "whitelist_usernames": [
+    "SYSTEM",
+    "LOCAL SERVICE",
+    "NETWORK SERVICE"
+  ],
+  "whitelist_ips": [
+    "127.0.0.1",
+    "::1"
+  ]
+}
